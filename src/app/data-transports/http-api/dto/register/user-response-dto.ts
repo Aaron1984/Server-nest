@@ -1,10 +1,10 @@
 import { Expose } from "class-transformer";
 import { ResponseBaseDto } from "../../shared/dto-base/response-base.dto.abstract";
 
-export class LoginResponseDto extends ResponseBaseDto{
+export class UserResponseDto extends ResponseBaseDto {
     @Expose()
-    token: string;
-
+    id: number;
+  
     @Expose()
-    refreshToken: string;
-}
+    email: string;
+  }

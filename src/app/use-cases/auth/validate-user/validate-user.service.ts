@@ -17,9 +17,9 @@ export class ValidateUserService {
       throw new UnauthorizedException('Invalid email or password');
     }
 
-    // if (!(await this.encryptionFacadeService.compare(password, user.password))) {
-    //   throw new UnauthorizedException('Invalid email or password');
-    // }
+    if (!(await this.encryptionFacadeService.compare(password, user.password))) {
+      throw new UnauthorizedException('Invalid email or password');
+    }
 
     return user;
   }

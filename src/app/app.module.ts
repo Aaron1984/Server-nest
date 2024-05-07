@@ -1,11 +1,8 @@
 import { Module } from '@nestjs/common';
 import * as dotenv from 'dotenv';
 import { ConfigModule } from "@nestjs/config";
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
 import { MysqlRepositoryModule } from '@mysql/mysql-repository.module';
-import { UserModule } from './use-cases/user/user.module';
 import { HttpApiModule } from './data-transports/http-api/http-api.module';
 
 dotenv.config();
@@ -22,10 +19,6 @@ dotenv.config();
     }),
     MysqlRepositoryModule,
     HttpApiModule
-  ],
-  controllers: [AppController],
-  providers: [
-    AppService
   ],
 })
 export class AppModule {}

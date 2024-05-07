@@ -10,6 +10,10 @@ import { ValidateUserService } from './validate-user/validate-user.service';
 import { EncryptionFacadeService } from './encryption-facade/encryption-facade.service';
 import { UserEntity } from '@app/data-sources/mysql-repository/entities/user.entity';
 import { AuthRepository } from '@src/app/data-sources/mysql-repository/adapters/auth-repository/auth-repository.service';
+import { RegisterService } from './register/register.service';
+import { JwtStrategy } from './security-strategies/jwt-strategy';
+import { LocalStrategy } from './security-strategies/local-strategy';
+import { RefreshJwtStrategy } from './security-strategies/refresh-token.strategy';
 
 @Module({
   imports: [
@@ -31,6 +35,16 @@ import { AuthRepository } from '@src/app/data-sources/mysql-repository/adapters/
     }),
   ],
   exports: [LoginService, JwtFacadeService, ValidateUserService, EncryptionFacadeService],
-  providers: [LoginService, JwtFacadeService, ValidateUserService, EncryptionFacadeService, AuthRepository]
+  providers: [
+    LoginService, 
+    JwtFacadeService, 
+    ValidateUserService, 
+    EncryptionFacadeService, 
+    AuthRepository, 
+    RegisterService,
+    JwtStrategy,
+    LocalStrategy,
+    RefreshJwtStrategy
+  ]
 })
 export class AuthModule {}
