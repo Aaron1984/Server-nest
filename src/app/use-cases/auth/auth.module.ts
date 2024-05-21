@@ -14,6 +14,7 @@ import { RegisterService } from './register/register.service';
 import { JwtStrategy } from './security-strategies/jwt-strategy';
 import { LocalStrategy } from './security-strategies/local-strategy';
 import { RefreshJwtStrategy } from './security-strategies/refresh-token.strategy';
+import { RefreshTokenService } from './refresh-token/refresh-token.service';
 
 @Module({
   imports: [
@@ -44,7 +45,8 @@ import { RefreshJwtStrategy } from './security-strategies/refresh-token.strategy
     RegisterService,
     JwtStrategy,
     LocalStrategy,
-    RefreshJwtStrategy
+    RefreshJwtStrategy,
+    RefreshTokenService
   ]
 })
 export class AuthModule {}
